@@ -1,0 +1,3 @@
+image:
+  repository: ghcr.io/chau-nm/react-helm-example
+  tag: latest
