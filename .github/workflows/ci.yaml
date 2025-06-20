@@ -1,0 +1,30 @@
+name: react-helm-example
+
+on:
+  push:
+    branches:
+      - main
+
+
+env:
+  IMAGE: ghcr.io/${{ github.repository }}
+  TAG: latest
+    
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & Push Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ env.IMAGE }}:${{ env.TAG }}
