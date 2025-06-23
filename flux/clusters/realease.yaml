@@ -13,7 +13,6 @@ spec:
         kind: GitRepository
         name: react-chart
         namespace: flux-system
-  reconcileStrategy: Revision
   values:
     image:
       repository: ghcr.io/chau-nm/react-helm-example
