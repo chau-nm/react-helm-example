@@ -1,0 +1,8 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: react-app
+  namespace: flux-system
+spec:
+  image: ghcr.io/chau-nm/react-helm-example
+  interval: 1m0s
